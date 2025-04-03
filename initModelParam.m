@@ -2,6 +2,47 @@ global auv;
 
 % The model is from 《6-DoF Modelling and Control of a Remotely Operated Vehicle》
 
+%% gazebo数据
+% auv.m = 11.2; %kg
+% auv.W = 112; %N
+% auv.B = 112; %N
+% auv.Ixx = 0.30;
+% auv.Iyy = 0.62;
+% auv.Izz = 0.57;
+% 
+% auv.xg = 0; %m
+% auv.yg = 0;
+% auv.zg = 0;
+% auv.xb = 0; %m
+% auv.yb = 0;
+% auv.zb = 0;
+% 
+% auv.Xdotu = -1.7182;
+% auv.Xu = -11.7391;
+% auv.Xuu = 0;
+% 
+% auv.Ydotv = 0;
+% auv.Yv = -20;
+% auv.Yvv = 0;
+% 
+% auv.Zdotw = -5.468;
+% auv.Zw = -31.8678;
+% auv.Zww = 0;
+% 
+% auv.Kdotp = 0;
+% auv.Kp = -25;
+% auv.Kpp = 0;
+% 
+% auv.Mdotq = -1.2481;
+% auv.Mq = -44.9085;
+% auv.Mqq = 0;
+% 
+% auv.Ndotr = -0.4006;
+% auv.Nr = -5;
+% auv.Nrr = 0;
+
+%% 原始水动力数据
+
 auv.m = 11.5; %kg
 auv.W = 112.8; %N
 auv.B = 114.8; %N
@@ -56,5 +97,5 @@ auv.T = [0.707 0.707 -0.707 -0.707 0 0 0 0;
          0.06 -0.06 0.06 -0.06 -0.218 -0.218 0.218 0.218;
          0.06 0.06 -0.06 -0.06 0.120 -0.1208 0.120 -0.120;
          -0.1888 0.1888 0.1888 -0.1888 0 0 0 0];
- auv.Kni = auv.K^-1;
- auv.Tni = pinv(auv.T);
+auv.Kni = auv.K^-1;
+auv.Tni = pinv(auv.T);

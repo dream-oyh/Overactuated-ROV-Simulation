@@ -17,14 +17,14 @@ V = In(1:6);
 
 global auv;
 
-C_RB = [0 0 0 0 auv.m*w 0;
-     0 0 0 -auv.m*w 0 0;
+C_RB = [0 0 0 0 auv.m*w -auv.m*v;
+     0 0 0 -auv.m*w 0 auv.m*u;
      0 0 0 auv.m*v -auv.m*u 0;
      0 auv.m*w -auv.m*v 0 auv.Izz*r -auv.Iyy*q;
-     -auv.m*w 0 -auv.m*u -auv.Izz*r 0 auv.Ixx*p;
+     -auv.m*w 0 auv.m*u -auv.Izz*r 0 auv.Ixx*p;
      auv.m*v -auv.m*u 0 auv.Iyy*q -auv.Ixx*p 0];
-C_A = [0 0 0 0 auv.Zdotw*w 0;
-       0 0 0 -auv.Zdotw*w 0 -auv.Xdotu*u;
+C_A = [0 0 0 0 -auv.Zdotw*w auv.Ydotv*v;
+       0 0 0 auv.Zdotw*w 0 -auv.Xdotu*u;
        0 0 0 -auv.Ydotv*v auv.Xdotu*u 0;
        0 -auv.Zdotw*w auv.Ydotv*v 0 auv.Ndotr*r auv.Mdotq*q;
        auv.Zdotw*w 0 -auv.Xdotu*u auv.Ndotr*r 0 -auv.Kdotp*p;
@@ -39,7 +39,7 @@ g = [(auv.W-auv.B)*sin(theta);
     auv.zg*auv.W*sin(theta);
     0];
 
-Fsum = tao-C_RB*V-C_A*V-D*V-g;
+Fsum = tao-C_RB*(V)-C_A*(V)-D*(V)-g;
 
 Out = auv.Mni*Fsum;
 end
