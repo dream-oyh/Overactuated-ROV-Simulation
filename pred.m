@@ -1,6 +1,5 @@
 v_0 = [0,  0,  0, 0,  0, 0];
 tau = importdata("data/tau.csv");
-tau = tau.data;
 euler = importdata("data/euler.csv");
 
 euler_pred = zeros(length(euler),3);
@@ -26,3 +25,7 @@ for i = 1:6
 subplot(6,1,i)
 plot(v_pred(:,i))
 end
+
+pose_data = [euler_pred, v_pred];
+csvwrite("pose_data.csv",pose_data);
+csvwrite("thrust_data.csv", tau);

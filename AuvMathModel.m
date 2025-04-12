@@ -26,7 +26,7 @@ C_RB = [0 0 0 0 auv.m*w -auv.m*v;
 C_A = [0 0 0 0 -auv.Zdotw*w auv.Ydotv*v;
        0 0 0 auv.Zdotw*w 0 -auv.Xdotu*u;
        0 0 0 -auv.Ydotv*v auv.Xdotu*u 0;
-       0 -auv.Zdotw*w auv.Ydotv*v 0 auv.Ndotr*r auv.Mdotq*q;
+       0 -auv.Zdotw*w auv.Ydotv*v 0 -auv.Ndotr*r auv.Mdotq*q;
        auv.Zdotw*w 0 -auv.Xdotu*u auv.Ndotr*r 0 -auv.Kdotp*p;
        -auv.Ydotv*v auv.Xdotu*u 0 -auv.Mdotq*q auv.Kdotp*p 0];
 
