@@ -1,6 +1,6 @@
 v_0 = [0,  0,  0, 0,  0, 0];
-tau = importdata("data/tau.csv");
-euler = importdata("data/euler.csv");
+tau = importdata("input_data/tau.csv");
+euler = importdata("input_data/euler.csv");
 
 euler_pred = zeros(length(euler),3);
 v_pred = zeros(length(euler),6);
